@@ -15,6 +15,6 @@ repo_root=$(git rev-parse --show-toplevel)
 executable_hooks=$(find $repo_root/scripts/git-hooks -type f -perm +111)
 
 # symlink them to the .git/hooks/ folder
-echo $executable_hooks | xargs -I {} sh -c 'ln -sf {} .git/hooks/$(basename {})'
+echo "$executable_hooks" | xargs -I {} sh -c 'ln -sf {} .git/hooks/$(basename {})'
 
 echo "git hooks installed"

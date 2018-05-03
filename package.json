@@ -1,0 +1,35 @@
+{
+  "name": "@usabilla/YOUR_PROJECT_SLUG",
+  "description": "YOUR_PROJECT_DESCRIPTION",
+  "version": "0.0.0-development",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:usabilla/YOUR_PROJECT_SLUG.git"
+  },
+  "main": "index.js",
+  "author": "development@usabilla.com",
+  "scripts": {
+    "test": "jasmine --config=jasmine.json",
+    "postinstall": "./scripts/git-hooks-install.sh",
+    "lint": "eslint .",
+    "format": "eslint . --fix",
+    "start": "node index.js",
+    "start:watch": "forever --watch --watchDirectory ./lib index.js"
+  },
+  "dependencies": {
+    "dotenv-safe": "^5.0.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chance": "^1.0.13",
+    "eslint": "^4.10.0",
+    "eslint-config-prettier": "^2.7.0",
+    "eslint-plugin-jasmine": "^2.9.1",
+    "eslint-plugin-prettier": "^2.3.1",
+    "forever": "^0.15.3",
+    "jasmine": "^3.1.0",
+    "jasmine-reporters": "^2.3.0",
+    "prettier": "^1.7.4",
+    "watch": "^1.0.1"
+  }
+}

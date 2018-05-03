@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "quotes": ["error", "single"],
+    "indent": ["error", 2, {"SwitchCase": 1}],
+    "space-before-function-paren": ["error", "never"],
+    "eol-last": ["error", "always"],
+    "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+    "prettier/prettier": ["error", {
+      "printWidth": 100,
+      "singleQuote": true,
+      "trailingComma": "es5"
+    }]
+  }
+}

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yarn lint || (echo; echo ">> Linting errors found. Run \`yarn format\` to fix. Be sure to \`git add\` your newly formatted changes before committing."; exit 1)

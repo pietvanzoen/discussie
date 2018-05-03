@@ -1,0 +1,16 @@
+{
+  "plugins": ["jasmine"],
+  "extends": [
+    "../.eslintrc.json",
+    "plugin:jasmine/recommended"
+  ],
+  "env": {
+    "jasmine": true
+  },
+  "rules": {
+    "no-console": 0,
+    "jasmine/no-global-setup": 0,
+    "jasmine/prefer-toHaveBeenCalledWith": 0,
+    "jasmine/no-spec-dupes": 0
+  }
+}

@@ -42,9 +42,6 @@ jobs:
   commitlint:
     docker:
       - image: circleci/node:8
-    branches:
-      ignore:
-        - master
     steps:
       - checkout
       - restore_cache:

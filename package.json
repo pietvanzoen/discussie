@@ -1,7 +1,7 @@
 {
-  "name": "@usabilla/YOUR_PROJECT_SLUG",
-  "description": "YOUR_PROJECT_DESCRIPTION",
-  "version": "0.0.0-development",
+  "name": "@usabilla/discussie",
+  "description": "A minimal diqus alternative.",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:usabilla/YOUR_PROJECT_SLUG.git"

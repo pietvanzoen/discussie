@@ -4,9 +4,7 @@
     "prettier"
   ],
   "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+    "ecmaVersion": 8
   },
   "env": {
     "node": true,
@@ -18,7 +16,11 @@
   "rules": {
     "quotes": ["error", "single"],
     "indent": ["error", 2, {"SwitchCase": 1}],
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
     "eol-last": ["error", "always"],
     "no-unused-vars": ["error", { "ignoreRestSiblings": true }],
     "prettier/prettier": ["error", {

@@ -1,5 +1,11 @@
 require('dotenv-safe').load();
+const logger = require('./lib/util/logger');
+logger.level(process.env.LOG_LEVEL);
+logger.handleExceptions();
 
-const App = require('./lib/app');
+const server = require('./lib/app')();
 
-new App().foo();
+server.listen(process.env.PORT, () => {
+  logger.info('%s listening at %s', server.name, server.url);
+  logger.exitOnException = false;
+});

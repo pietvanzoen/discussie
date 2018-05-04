@@ -1,11 +1,3 @@
-// load env variables
-require('./_helpers/load-env')();
+const logger = require('../lib/util/logger');
 
-if (process.env.JASMINE_JUNIT_PATH) {
-  const reporters = require('jasmine-reporters');
-  const junitReporter = new reporters.JUnitXmlReporter({
-    savePath: process.env.JASMINE_JUNIT_PATH,
-    consolidateAll: true,
-  });
-  jasmine.getEnv().addReporter(junitReporter);
-}
+logger.level('warn');

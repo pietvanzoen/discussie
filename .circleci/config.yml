@@ -6,14 +6,18 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependency-cache-{{ checksum "yarn.lock" }}
+          key: v2-dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Updating npm
+          command: npmv=$(echo $(npm -v) | head -c 1); [ "$npmv" -lt "6" ] && sudo npm i -g npm
       - run:
           name: Install deps
-          command: yarn install
+          command: npm ci
       - save_cache:
-          key: v1-dependency-cache-{{ checksum "yarn.lock" }}
+          key: v2-dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
+            - /root/.npm
 
   test:
     docker:
@@ -21,10 +25,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependency-cache-{{ checksum "yarn.lock" }}
+          key: v2-dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Run tests
-          command: JASMINE_JUNIT_PATH=jasmine-junit.xml yarn test
+          command: JASMINE_JUNIT_PATH=jasmine-junit.xml npm test
       - store_test_results:
           path: jasmine-junit.xml
 
@@ -34,10 +38,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependency-cache-{{ checksum "yarn.lock" }}
+          key: v2-dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Lint code
-          command: yarn lint
+          command: npm run lint
 
   commitlint:
     docker:
@@ -45,10 +49,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependency-cache-{{ checksum "yarn.lock" }}
+          key: v2-dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Lint commit messages
-          command: git fetch --all && yarn commitlint:branch
+          command: git fetch --all && npm run commitlint:branch
 
 workflows:
   version: 2

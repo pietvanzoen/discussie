@@ -23,7 +23,8 @@
   "dependencies": {
     "bunyan": "^1.8.12",
     "dotenv-safe": "^5.0.1",
-    "restify": "^7.1.1"
+    "restify": "^7.1.1",
+    "sqlite3": "^4.0.0"
   },
   "license": "MIT",
   "devDependencies": {
